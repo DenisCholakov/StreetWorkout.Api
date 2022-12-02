@@ -6,8 +6,12 @@ namespace StreetWorkout.Core.Interfaces
     {
         Task<int> AddExerciseAsync(CoreAddExerciseRequest request);
 
+        Task<bool> DeleteExerciseAsync(int id);
+
         Task<CoreExercise> GetExerciseAsync(int id);
 
         Task<List<CoreExercise>> GetExercisesAsync(CoreGetExercisesRequest request);
+
+        Task<bool> UpdateExerciseAsync(int id, CoreUpdateExerciseRequest request);
     }
 }

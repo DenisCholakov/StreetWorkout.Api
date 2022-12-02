@@ -57,11 +57,14 @@ namespace StreetWorkout.Core.Repositories
             return true;
         }
 
-        public async Task<bool> DeleteExercise(int id)
+        public async Task<bool> DeleteExerciseAsync(int id)
         {
-            var exerciseToDelete = await dbContext.Set<Exercise>().FindAsync(id);
+            var exerciseToDelete = await dbContext.Set<Exercise>()
+                .Include(x => x.Equipment)
+                .Include(x => x.ExerciseTrainings)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (exerciseToDelete == null)
+            if (exerciseToDelete == null || exerciseToDelete.ExerciseTrainings.Any())
             {
                 return false;
             }

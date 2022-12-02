@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 using StreetWorkout.Core.Interfaces;
@@ -21,8 +20,10 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 builder.Services.AddScoped<IExercisesRepository, ExercisesRepository>();
 builder.Services.AddScoped<ITrainingsRepository, TrainingsRepository>();
+builder.Services.AddScoped<IProgramsRepository, ProgramsRepository>();
 builder.Services.AddScoped<IExercisesService, ExercisesService>();
 builder.Services.AddScoped<IEquipmentService, EquipmentService>();
+builder.Services.AddScoped<IProgramsService, ProgramsService>();
 
 var app = builder.Build();
 

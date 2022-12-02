@@ -51,5 +51,19 @@ namespace StreetWorkout.Core.Services
 
             return await exercisesRespository.AddExerciseAsync(exercise);
         }
+
+        public async Task<bool> UpdateExerciseAsync(int id, CoreUpdateExerciseRequest request)
+        {
+            var result = await exercisesRespository.UpdateExerciseAsync(id, request);
+
+            return result;
+        }
+
+        public async Task<bool> DeleteExerciseAsync(int id)
+        {
+            var result = await exercisesRespository.DeleteExerciseAsync(id);
+
+            return result;
+        }
     }
 }
