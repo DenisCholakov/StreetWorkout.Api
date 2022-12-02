@@ -14,6 +14,7 @@ namespace StreetWorkout.Data.ModelMaps
             builder.Property(x => x.Id)
                 .HasColumnName("Id")
                 .HasColumnType("int")
+                .ValueGeneratedOnAdd()
                 .IsRequired();
 
             builder.Property(x => x.Name)
@@ -32,8 +33,29 @@ namespace StreetWorkout.Data.ModelMaps
                 .WithMany(x => x.Exercises);
 
             builder
-                .HasMany(x => x.Trainings)
-                .WithMany(x => x.Exercises);
+                .HasMany(x => x.ExerciseTrainings)
+                .WithOne(x => x.Exercise)
+                .HasForeignKey(x => x.ExerciseId);
+
+            builder.HasData(
+                new Exercise
+                {
+                    Id = 1,
+                    Name = "Pull up",
+                    Description = "Really basic exercise.",
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Name = "Push up",
+                    Description = "Another basic exercise"
+                },
+                new Exercise
+                {
+                    Id = 3,
+                    Name = "Archer push up",
+                    Description = "An interesting push up"
+                });
         }
     }
 }

@@ -14,6 +14,7 @@ namespace StreetWorkout.Data.ModelMaps
             builder.Property(x => x.Id)
                 .HasColumnName("Id")
                 .HasColumnType("int")
+                .ValueGeneratedOnAdd()
                 .IsRequired();
 
             builder.Property(x => x.Name)
@@ -32,12 +33,23 @@ namespace StreetWorkout.Data.ModelMaps
                 .IsRequired();
 
             builder
-                .HasMany(x => x.Exercises)
-                .WithMany(x => x.Trainings);
+                .HasMany(x => x.ExerciseTrainings)
+                .WithOne(x => x.Training)
+                .HasForeignKey(x => x.TrainingId);
 
             builder
-                .HasMany(x => x.Programs)
-                .WithMany(x => x.Trainings);
+                .HasMany(x => x.ProgramTrainings)
+                .WithOne(x => x.Training)
+                .HasForeignKey(x => x.TrainingId);
+
+            builder.HasData(
+                new Training
+                {
+                    Id = 1,
+                    Name = "Pull push",
+                    Description = "Evereyone should start with this training",
+                    Difficulty = Models.Enimerations.DifficultyEnum.Begginer
+                });
         }
     }
 }

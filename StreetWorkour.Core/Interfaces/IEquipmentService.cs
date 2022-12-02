@@ -5,5 +5,7 @@ namespace StreetWorkout.Core.Interfaces
     public interface IEquipmentService
     {
         Task<int> AddEquipmentAsync(CoreAddEquipmentRequest request);
+
+        Task<List<CoreEquipment>> GetEquipmentAsync();
     }
 }

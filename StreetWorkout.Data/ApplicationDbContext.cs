@@ -21,9 +21,15 @@ namespace StreetWorkout.Data
 
         public DbSet<Program> Programs { get; set; }
 
+        public DbSet<ExerciseTraining> ExerciseTrainings { get; set; }
+
+        public DbSet<ProgramTraining> ProgramTrainings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }

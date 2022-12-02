@@ -31,23 +31,20 @@ namespace StreetWorkout.Core.Repositories
 
         public async Task<int> AddTrainingAsync(Training entity)
         {
-            await dbContext.AddAsync(entity);
+            await dbContext.Set<Training>().AddAsync(entity);
             await dbContext.SaveChangesAsync();
 
             return entity.Id;
         }
 
-        public async Task<bool> AddTrainingExerciseAsync(int trainingId, int exerciseId)
+        public async Task<bool> AddTrainingExerciseAsync(ExerciseTraining entity)
         {
-            var training = await dbContext.Trainings.FindAsync(trainingId);
-            var exercise = await dbContext.Exercises.FindAsync(exerciseId);
-
-            if (training == null || exercise == null)
+            if (entity == null)
             {
                 return false;
             }
 
-            training.Exercises.Add(exercise);
+            await dbContext.Set<ExerciseTraining>().AddAsync(entity);
             await dbContext.SaveChangesAsync();
 
             return true;

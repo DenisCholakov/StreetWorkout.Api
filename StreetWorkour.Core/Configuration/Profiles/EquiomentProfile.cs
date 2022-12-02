@@ -10,6 +10,8 @@ namespace StreetWorkout.Core.Configuration.Profiles
         public EquiomentProfile()
         {
             CreateMap<CoreAddEquipmentRequest, Equipment>();
+
+            CreateMap<Equipment, CoreEquipment>();
         }
     }
 }

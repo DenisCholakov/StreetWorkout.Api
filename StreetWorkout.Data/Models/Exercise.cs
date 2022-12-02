@@ -8,8 +8,8 @@
 
         public string Description { get; set; }
 
-        public ICollection<Training> Trainings { get; set; } = new HashSet<Training>();
-
         public ICollection<Equipment> Equipment { get; set; } = new HashSet<Equipment>();
+
+        public ICollection<ExerciseTraining> ExerciseTrainings { get; set; } = new HashSet<ExerciseTraining>();
     }
 }

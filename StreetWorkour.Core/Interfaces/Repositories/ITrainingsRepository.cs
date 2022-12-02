@@ -7,7 +7,7 @@ namespace StreetWorkout.Core.Interfaces.Repositories
     {
         Task<int> AddTrainingAsync(Training entity);
 
-        Task<bool> AddTrainingExerciseAsync(int trainingId, int exerciseId);
+        Task<bool> AddTrainingExerciseAsync(ExerciseTraining entity);
 
         Task<bool> DeleteTrainingAsync(int id);
 

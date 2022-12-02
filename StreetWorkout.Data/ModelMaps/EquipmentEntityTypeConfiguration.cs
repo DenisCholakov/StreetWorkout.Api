@@ -25,6 +25,28 @@ namespace StreetWorkout.Data.ModelMaps
             builder
                 .HasMany(x => x.Exercises)
                 .WithMany(x => x.Equipment);
+
+            builder.HasData(
+                new Equipment
+                {
+                    Id = 1,
+                    Name = "Dumbells"
+                },
+                new Equipment
+                {
+                    Id = 2,
+                    Name = "Pull up bar"
+                },
+                new Equipment
+                {
+                    Id = 3,
+                    Name = "Rings"
+                },
+                new Equipment
+                {
+                    Id = 4,
+                    Name = "Training bands"
+                });
         }
     }
 }

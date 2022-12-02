@@ -18,6 +18,14 @@ namespace StreetWorkout.Core.Services
             this.equipmentRepository = equipmentRepository;
         }
 
+        public async Task<List<CoreEquipment>> GetEquipmentAsync()
+        {
+            var equipment = await equipmentRepository.GetListAsync();
+            var result = mapper.Map<List<CoreEquipment>>(equipment);
+
+            return result;
+        }
+
         public async Task<int> AddEquipmentAsync(CoreAddEquipmentRequest request)
         {
             var equipment = mapper.Map<Equipment>(request);

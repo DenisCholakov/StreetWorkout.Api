@@ -12,8 +12,8 @@ namespace StreetWorkout.Data.Models
 
         public DifficultyEnum Difficulty { get; set; }
 
-        public ICollection<Exercise> Exercises { get; set; } = new HashSet<Exercise>();
+        public ICollection<ExerciseTraining> ExerciseTrainings { get; set; } = new HashSet<ExerciseTraining>();
 
-        public ICollection<Program> Programs { get; set; } = new HashSet<Program>();
+        public ICollection<ProgramTraining> ProgramTrainings { get; set; } = new HashSet<ProgramTraining>();
     }
 }

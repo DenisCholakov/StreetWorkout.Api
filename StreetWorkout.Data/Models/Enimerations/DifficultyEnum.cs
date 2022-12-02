@@ -3,7 +3,7 @@
     public enum DifficultyEnum
     {
         None = 0,
-        Begiiner,
+        Begginer,
         Intermediate,
         Advanced
     }
