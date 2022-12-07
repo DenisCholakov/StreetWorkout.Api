@@ -23,7 +23,7 @@ namespace StreetWorkout.Core.Repositories
             return exercise;
         }
 
-        public async Task<List<Exercise>> GetExercisesAsync(CoreGetExercisesRequest request)
+        public async Task<List<Exercise>> GetExercisesAsync()
         {
             var employees = await dbContext.Exercises.ToListAsync();
 

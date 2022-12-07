@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-using StreetWorkout.Api.Models;
+using StreetWorkout.Api.Models.Exercises;
 using StreetWorkout.Core.Models.Exercises;
 
 namespace StreetWorkout.Api.Configurations.Profiles

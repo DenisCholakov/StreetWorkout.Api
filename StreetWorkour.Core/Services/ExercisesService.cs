@@ -32,9 +32,9 @@ namespace StreetWorkout.Core.Services
             return result;
         }
 
-        public async Task<List<CoreExercise>> GetExercisesAsync(CoreGetExercisesRequest request)
+        public async Task<List<CoreExercise>> GetExercisesAsync()
         {
-            var exercises = await exercisesRespository.GetExercisesAsync(request);
+            var exercises = await exercisesRespository.GetExercisesAsync();
 
             var resilt = mapper.Map<List<CoreExercise>>(exercises);
 

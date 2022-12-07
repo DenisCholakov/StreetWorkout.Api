@@ -1,4 +1,4 @@
-﻿namespace StreetWorkout.Api.Models
+﻿namespace StreetWorkout.Api.Models.Exercises
 {
     public class ApiAddExerciseRequest
     {

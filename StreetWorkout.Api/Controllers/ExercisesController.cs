@@ -4,7 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-using StreetWorkout.Api.Models;
+using StreetWorkout.Api.Models.Exercises;
 using StreetWorkout.Core.Interfaces;
 using StreetWorkout.Core.Models.Exercises;
 
@@ -33,6 +33,22 @@ namespace StreetWorkout.Api.Controllers
             var coreExercise = await exercisesService.GetExerciseAsync(id);
 
             var result = mapper.Map<ApiExercise>(coreExercise);
+
+            return ContentResult(result);
+        }
+
+        [HttpGet()]
+        [SwaggerOperation(
+            Summary = "Get all exercises",
+            Description = "Get all exercises",
+            OperationId = "GetExercisesAsync")]
+        [SwaggerResponse(statusCode: (int)HttpStatusCode.NotFound)]
+        [SwaggerResponse(statusCode: (int)HttpStatusCode.OK, type: typeof(ApiExercise))]
+        public async Task<IActionResult> GetExercisesAsync()
+        {
+            var coreExercises = await exercisesService.GetExercisesAsync();
+
+            var result = mapper.Map<List<ApiExercise>>(coreExercises);
 
             return ContentResult(result);
         }

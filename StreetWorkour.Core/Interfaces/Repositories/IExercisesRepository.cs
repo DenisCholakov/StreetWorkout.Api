@@ -11,7 +11,7 @@ namespace StreetWorkout.Core.Interfaces.Repositories
 
         Task<Exercise> GetExerciseAsync(int exerciseId);
 
-        Task<List<Exercise>> GetExercisesAsync(CoreGetExercisesRequest request);
+        Task<List<Exercise>> GetExercisesAsync();
 
         Task<bool> UpdateExerciseAsync(int exerciseId, CoreUpdateExerciseRequest request);
     }

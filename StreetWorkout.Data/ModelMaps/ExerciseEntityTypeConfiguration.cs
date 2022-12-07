@@ -22,6 +22,10 @@ namespace StreetWorkout.Data.ModelMaps
                 .HasColumnType("nvarchar(40)")
                 .IsRequired();
 
+            builder.Property(x => x.ImageUrl)
+                .HasColumnName(@"ImageUrl")
+                .HasColumnType("nvarchar(1000)");
+
 
             builder.Property(x => x.Description)
                 .HasColumnName(@"Description")
